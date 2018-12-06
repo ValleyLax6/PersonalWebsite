@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Apartment Room</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <link href = "https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src='js/jquery-3.3.1.js'></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div class ="container-fluid">
+    <div class = "row">
+        <div class = "col-lg-6" >
+            <p>
+                Light controller
+            </p>
+        </div>
+        <div class="col-lg-6" >
+            <div class = "row">
+                <div class = "col-lg-12" style="color: #000000;font-family: Orbitron;letter-spacing: 7px;font-size: 60px;text-align: center">
+                    <p id = "clockDisplay">
+
+                    </p>
+                    <p id = "dateDisplay" style="font-size: 35px; color: #414141;letter-spacing: 5px">
+
+                    </p>
+                    <script>
+                        function showTime() {
+                            const daysOfTheWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                            const monthsOfTheYear = ['Jan','Feb','Mar','Apr','May','June','Jul','Aug','Sep','Oct','Nov','Dec']
+                            var date = new Date();
+                            var h = date.getHours();
+                            var m = date.getMinutes();
+                            var s = date.getSeconds();
+                            var dayOfWeek = date.getDay();
+                            var day = date.getDate();
+                            var month = date.getMonth();
+                            var year = date.getFullYear();
+                            var session = "AM";
+
+                            if(h === 0){
+                                h=12;
+                            }
+
+                            if(h>12){
+                                h=h-12;
+                                session = "PM";
+                            }
+                            m= (m<10) ? "0" + m : m;
+                            s= (s<10) ? "0" + s : s;
+
+                            var time = h + ":" + m + ":" + s + " "+ session;
+                            var currDate = daysOfTheWeek[dayOfWeek] +" "+ monthsOfTheYear[month] + " "+ day + ", "+year;
+                            document.getElementById("clockDisplay").innerText = time;
+                            document.getElementById("clockDisplay").textContent = time;
+                            document.getElementById("dateDisplay").innerText = currDate;
+                            document.getElementById("dateDisplay").textContent= currDate;
+
+                            setTimeout(showTime,1000);
+                        }
+
+                        showTime();
+                    </script>
+
+                </div>
+            </div>
+            <div class = "row">
+                <div class="col-lg-12">
+                    <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="Iowa City" data-font="Jura" data-days="5" data-theme="pure" >Iowa City</a>
+                    <script>
+                        !function(d,s,id){
+                            var js,fjs=d.getElementsByTagName(s)[0];
+                            if(!d.getElementById(id)) {
+                                js=d.createElement(s);
+                                js.id=id;
+                                js.src='https://weatherwidget.io/js/widget.min.js';
+                                fjs.parentNode.insertBefore(js,fjs);
+                            }}(document,'script','weatherwidget-io-js');
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-lg-6" >
+            <p>
+                Calender
+            </p>
+        </div>
+        <div class = "col-lg-6" >
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                        Spotify Player
+                    </p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                        Text notifications
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
